@@ -65,8 +65,6 @@ export default function (token) {
         }
     });
 
-    console.log(payload)
-
     const params = {
         headers: {
             "Content-Type": "application/json",
