@@ -31,7 +31,7 @@ export function setup() {
     };
 
     let res = http.post(authUri, credentialsPayload, params);
-    check(res, { "Login bem-sucedido": (r) => r.status === 200 });
+    check(res, { "Token Created": (r) => r.status === 200 });
 
     let token = JSON.parse(res.body).access_token;
     return token;
@@ -73,7 +73,7 @@ export default function (token) {
     };
 
     const res = http.post(ledgerUri, payload, params);
-    check(res, { 'Status 201': (r) => r.status === 201 });
+    check(res, { 'Request Success Status 201': (r) => r.status === 201 });
 
     sleep(1);
 }
