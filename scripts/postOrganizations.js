@@ -1,8 +1,8 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
-const LEDGER_URI = "http://localhost:3000/v1/organizations"
-const AUTH_URI = "http://localhost:8080/api/login/oauth/access_token";
+const LEDGER_URI = "http://host.docker.internal:3000/v1/organizations"
+const AUTH_URI = "http://host.docker.internal:8080/api/login/oauth/access_token";
 const CLIENT_ID = "9670e0ca55a29a466d31";
 const CLIENT_SECRET = "dd03f916cacf4a98c6a413d9c38ba102dce436a9";
 const USERNAME = "user_john";
@@ -10,9 +10,9 @@ const PASSWORD = "Lerian@123";
 
 export const options = {
     stages: [
-        { duration: '3s', target: 5 },
-        { duration: '5s', target: 5 },
-        { duration: '2s', target: 0 },
+        { duration: '13s', target: 5 },
+        { duration: '15s', target: 5 },
+        { duration: '12s', target: 0 },
     ],
 };
 
@@ -30,8 +30,10 @@ export function setup() {
         headers: { "Content-Type": "application/json" },
     };
 
+    console.log(authUri);
     let res = http.post(authUri, credentialsPayload, params);
     check(res, { "Token Created": (r) => r.status === 200 });
+    console.log('Response body: ', res.body);
 
     let token = JSON.parse(res.body).access_token;
     return token;
