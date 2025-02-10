@@ -26,4 +26,6 @@ RUN mkdir -p /home/usr/local
 RUN go install go.k6.io/xk6/cmd/xk6@latest
 RUN xk6 build --with github.com/szkiba/xk6-faker@latest
 
+EXPOSE 5665 
+
 ENTRYPOINT [ "/bin/sh" ]
