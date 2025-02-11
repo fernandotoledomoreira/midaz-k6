@@ -16,6 +16,7 @@ Para construir a imagem do Docker, execute o seguinte comando:
 
 ```sh
 docker-compose build --no-cache
+```
 
 ## ▶️ Passo 2: Subir o container
 
@@ -23,6 +24,7 @@ Agora, suba o container em segundo plano utilizando:
 
 ```sh
 docker-compose up -d
+```
 
 ## 🖥️ Passo 3: Acessar o container
 
@@ -30,6 +32,7 @@ Para acessar o terminal do container, utilize:
 
 ```sh
 docker exec -it midaz-k6-container /bin/bash
+```
 
 ## ⚡ Passo 4: Executar um teste de performance
 
@@ -37,12 +40,13 @@ Para rodar um teste de performance utilizando o K6, execute o seguinte comando d
 
 ```sh
 K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_EXPORT=html-report.html k6 run scripts/postOrganizations.js
+```
 
 ## 🔍 Explicação:
 
-K6_WEB_DASHBOARD=true → Habilita a exibição do relatório em tempo real.
-K6_WEB_DASHBOARD_EXPORT=html-report.html → Salva o relatório gerado em um arquivo HTML.
-k6 run scripts/postOrganizations.js → Executa o teste de performance localizado em scripts/postOrganizations.js.
+- **`K6_WEB_DASHBOARD=true`** → Habilita a exibição do relatório em tempo real.
+- **`K6_WEB_DASHBOARD_EXPORT=html-report.html`** → Salva o relatório gerado em um arquivo HTML.
+- **`k6 run scripts/postOrganizations.js`** → Executa o teste de performance localizado em `scripts/postOrganizations.js`.
 
 ## 📊 Passo 5: Visualizar os resultados
 
