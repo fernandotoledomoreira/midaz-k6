@@ -10,8 +10,8 @@ const PASSWORD = "Lerian@123";
 
 export const options = {
     stages: [
-        { duration: '13s', target: 5 },
-        { duration: '15s', target: 5 },
+        { duration: '5s', target: 100 },
+        { duration: '15s', target: 500 },
         { duration: '12s', target: 0 },
     ],
 };
@@ -76,6 +76,9 @@ export default function (token) {
 
     const res = http.post(ledgerUri, payload, params);
     check(res, { 'Request Success Status 201': (r) => r.status === 201 });
+    if (res.status !== 201) {
+        console.log(res.body);
+    }    
 
     sleep(1);
 }
