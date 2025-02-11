@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  midaz-k6:
+    build:
+      context: .
+    container_name: midaz-k6-container
+    volumes:
+      - .:/midaz-k6
+    ports:
+      - "5665:5665"
+    tty: true
