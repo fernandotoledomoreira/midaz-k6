@@ -35,8 +35,8 @@ export function setup() {
     check(res, { "Token Created": (r) => r.status === 200 });
     console.log('Response body: ', res.body);
 
-    //let token = JSON.parse(res.body).access_token;
-    //return token;
+    let token = JSON.parse(res.body).access_token;
+    return token;
 
 }
 
